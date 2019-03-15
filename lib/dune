@@ -1,0 +1,6 @@
+(library
+ (name rutsch)
+ (public_name rutsch)
+ (synopsis "Rutsch is a small presentation tool")
+ (preprocess (pps js_of_ocaml-ppx lwt_ppx))
+ (libraries js_of_ocaml js_of_ocaml-lwt))
