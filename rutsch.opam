@@ -8,6 +8,7 @@ dev-repo: "git+https://github.com/xvw/rutsch.git"
 license: "MIT"
 
 build: [
+  ["dune" "subst"] {pinned}
   ["dune" "build" "-p" name "-j" jobs]
   ["dune" "build" "@doc" "-p" name ] {with-doc}
 ]
