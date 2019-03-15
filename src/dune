@@ -1,0 +1,13 @@
+(executable
+ (name box)
+ (js_of_ocaml)
+ (preprocess (pps js_of_ocaml-ppx lwt_ppx))
+ (modules box)
+ (libraries js_of_ocaml js_of_ocaml-lwt rutsch))
+
+(executable
+ (name stage)
+ (js_of_ocaml)
+ (preprocess (pps js_of_ocaml-ppx lwt_ppx))
+ (modules stage)
+ (libraries js_of_ocaml js_of_ocaml-lwt rutsch))
