@@ -8,6 +8,7 @@ val warn : 'a -> unit
 val debug : 'a -> unit
 val info : 'a -> unit
 val assert_ : bool -> 'a -> unit
+val table : ?columns:string list -> 'a -> unit
 
 (** {2 Output OCaml string} *)
 

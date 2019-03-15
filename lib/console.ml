@@ -7,7 +7,9 @@ class type hook =
     method clear : unit -> unit Js.meth
 
     method table :
-      Js.js_string Js.t Js.js_array Js.t Js.Optdef.t -> unit Js.meth
+         'a
+      -> Js.js_string Js.t Js.js_array Js.t Js.Optdef.t
+      -> unit Js.meth
   end
 
 external get_console : unit -> hook Js.t = "caml_js_get_console"
@@ -32,6 +34,13 @@ let info_message message = message |> Js.string |> info
 
 let assert_message flag message =
   message |> Js.string |> assert_ flag
+;;
+
+let table ?columns x =
+  let opt =
+    Js.Optdef.(map (option columns) (List.to_js Js.string))
+  in
+  console##table x opt
 ;;
 
 let trace () = console##trace
