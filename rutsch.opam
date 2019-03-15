@@ -1,0 +1,27 @@
+opam-version: "2.0"
+version: "dev"
+maintainer: "xvw"
+authors: ["xvw"]
+homepage: "https://github.com/xvw/rutsch"
+bug-reports: "https://github.com/xvw/rutsch/issues"
+dev-repo: "git+https://github.com/xvw/rutsch.git"
+license: "MIT"
+
+build: [
+  ["dune" "build" "-p" name "-j" jobs]
+  ["dune" "build" "@doc" "-p" name ] {with-doc}
+]
+
+depends: [
+  "lwt" {build}
+  "dune" {build}
+  "ocaml" { >= "4.07.0" }
+  "js_of_ocaml-compiler" {build & >= "3.0" & < "4.0"}
+  "js_of_ocaml-ppx" {build & >= "3.0" & < "4.0"}
+  "lwt_ppx" {build}
+  "js_of_ocaml-lwt" {>= "3.0" & < "4.0"}
+  "js_of_ocaml" {>= "3.0" & < "4.0"}
+  "odoc" {with-doc}
+]
+
+synopsis: "Personal presentation tool"
